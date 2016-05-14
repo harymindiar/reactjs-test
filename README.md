@@ -5,7 +5,7 @@
 install dependecies
 
 ```
-npm install`
+npm install
 ```
 
 see the result
