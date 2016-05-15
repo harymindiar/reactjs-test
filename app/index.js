@@ -25,6 +25,14 @@ var rows = [
 			name: 'John',
 			address: 'Jakarta'
 		}
+	},
+	{
+		'id': 2,
+		'values': {
+			id: 2,
+			name: 'John',
+			address: 'Jakarta'
+		}
 	}
 ];
 
