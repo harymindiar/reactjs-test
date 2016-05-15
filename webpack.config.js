@@ -1,8 +1,18 @@
+var webpack = require('webpack');
+
+var PROD = JSON.parse(process.env.PROD_ENV || '0');
+
 module.exports = {
   entry: './app/index.js',
   output: {
-    filename: 'public/bundle.js'
+    path: 'public',
+    filename: PROD ? 'bundle.min.js' : 'bundle.js'
   },
+  plugins: PROD ? [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false }
+    })
+  ] : [],
   resolve: {
     extensions: [ '', '.js', '.jsx' ]
   },
