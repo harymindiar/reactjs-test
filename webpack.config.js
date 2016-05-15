@@ -1,13 +1,16 @@
 module.exports = {
-  entry: './app/components/Main.js',
+  entry: './app/index.js',
   output: {
     filename: 'public/bundle.js'
+  },
+  resolve: {
+    extensions: [ '', '.js', '.jsx' ]
   },
   devtool: 'source-map',
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
