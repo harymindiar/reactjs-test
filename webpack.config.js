@@ -1,17 +1,31 @@
+var webpack = require('webpack');
+
+var PROD = JSON.parse(process.env.PROD_ENV || '0');
+
 module.exports = {
-  entry: './app/components/Main.js',
+  entry: './app/index.js',
   output: {
-    filename: 'public/bundle.js'
+    path: 'public',
+    filename: PROD ? 'bundle.min.js' : 'bundle.js'
+  },
+  plugins: PROD ? [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false }
+    })
+  ] : [],
+  resolve: {
+    extensions: [ '', '.js', '.jsx' ]
   },
   devtool: 'source-map',
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react']
+          plugins: ['transform-runtime'],
+          presets: ['es2015', 'stage-0', 'react'],
         }
       },
     ]
