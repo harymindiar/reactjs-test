@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class TableHead extends React.Component {
+export default class TableHead extends Component {
 	render() {
 		let row = this.props.heads.map(function(item) {
 			return <th key={item.id}>{item.name}</th>;

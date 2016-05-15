@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Immutable from 'immutable';
 
-export default class TableRow extends React.Component {
+export default class TableRow extends Component {
 	render() {
 		let row = this.props.rows.map(function(item) {
 			let valuesIm = Immutable.Map(item.values);
