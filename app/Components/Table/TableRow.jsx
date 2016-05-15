@@ -5,11 +5,11 @@ export default class TableRow extends React.Component {
 	render() {
 		let row = this.props.rows.map(function(item) {
 			let valuesIm = Immutable.Map(item.values);
-			let td = valuesIm.valueSeq().map(function(value) {
-				return <td>{value}</td>;
+			let td = valuesIm.valueSeq().map(function(value, i) {
+				return <td key={i}>{value}</td>;
 			})
 
-			return <tr>{td}</tr>;
+			return <tr key={item.id}>{td}</tr>;
 		});
 
 		return (

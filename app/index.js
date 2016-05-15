@@ -19,17 +19,17 @@ var heads = [
 
 var rows = [
 	{
-		'id': 1,
+		'id': 10,
 		'values': {
-			id: 1,
+			id: 10,
 			name: 'John',
 			address: 'Jakarta'
 		}
 	},
 	{
-		'id': 2,
+		'id': 11,
 		'values': {
-			id: 2,
+			id: 11,
 			name: 'John',
 			address: 'Jakarta'
 		}
