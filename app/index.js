@@ -17,4 +17,15 @@ var heads = [
 	},
 ];
 
-render(<Table heads={heads}/>, document.getElementById('app'));
+var rows = [
+	{
+		'id': 1,
+		'values': {
+			id: 1,
+			name: 'John',
+			address: 'Jakarta'
+		}
+	}
+];
+
+render(<Table heads={heads} rows={rows}/>, document.getElementById('app'));

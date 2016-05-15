@@ -2,15 +2,13 @@ import React from 'react';
 
 export default class TableHead extends React.Component {
 	render() {
-		let cols = [];
-		this.props.heads.forEach(function(item) {
-			cols.push(<th key={item.id}>{item.name}</th>);
+		let row = this.props.heads.map(function(item) {
+			return <th key={item.id}>{item.name}</th>;
 		});
-
 		return (
 			<thead>
 				<tr>
-					{cols}
+					{row}
 				</tr>
 			</thead>
 		);
