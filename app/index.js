@@ -36,16 +36,4 @@ let rows = [
     }
 ];
 
-let pagination = {
-    count: 100, // total rows
-    activeClass: 'active',
-    inactiveClass: '',
-    defaults: {
-        size: 10,        // Result per page
-        listLength: 2,  // Length pagination Result.
-        // eg:  listLength = 2; ==>  <<  5, 6, 7, 8, 9  >>
-        //      listLength = 1; ==>  <<  6, 7, 8  >>
-    }
-};
-
-render(<Table heads={heads} rows={rows} pagination={pagination}/>, document.getElementById('app'));
+render(<Table heads={heads} rows={rows}/>, document.getElementById('app'));

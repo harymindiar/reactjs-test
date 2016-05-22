@@ -23,7 +23,6 @@ class Table extends Component {
                     <TableHead heads={this.props.heads}/>
                     <TableRow rows={this.props.rows}/>
                 </table>
-                <Pagination options={this.props.pagination}/>
             </div>
         );
     }
