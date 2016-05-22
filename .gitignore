@@ -1,2 +1,6 @@
 /node_modules
 npm-debug.log
+/public/vendor.js
+/public/vendor.js.map
+/public/*_bundle.js
+/public/*_bundle.js.map

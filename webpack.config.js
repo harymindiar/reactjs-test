@@ -1,14 +1,25 @@
 var webpack = require('webpack');
+var VendorChunkPlugin = require('webpack-vendor-chunk-plugin');
 
 var PROD = JSON.parse(process.env.PROD_ENV || '0');
 
 module.exports = {
-  entry: './app/index.js',
+  entry: {
+    sample: './app/sample_table.js',
+    vendor: ['react', 'react-dom']
+  },
   output: {
     path: 'public',
-    filename: PROD ? 'bundle.min.js' : 'bundle.js'
+    filename: '[name]_bundle.js'
   },
   plugins: PROD ? [
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+    new VendorChunkPlugin('vendor'),
+    new webpack.DefinePlugin({
+      'process.env':{
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false }
     })
