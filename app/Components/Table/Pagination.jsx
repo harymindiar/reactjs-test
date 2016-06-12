@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
+import Paginator from 'generic-paginate';
+import Immutable from 'immutable';
 
 export default class Pagination extends Component {
     render() {
+        let paginator = Paginator(this.props.pagination);
+        let paginate = paginator.paginate(this.props.pagination);
+        let range = Immutable.Map(paginate.range);
+
+        let listPage = range.valueSeq().map(function(value, i) {
+            let isActive = '';
+            if (value == 'active') {
+                isActive = 'active';
+            }
+            return <li key={i} className={isActive}><a href="#">{i+1}</a></li>;
+        });
+
         return (
             <nav className="text-center">
                 <ul className="pagination">
-                    <li>
-                      <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                      </a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                    </li>
+                    {listPage}
                 </ul>
             </nav>
         );

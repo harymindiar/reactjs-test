@@ -13,7 +13,14 @@ class Table extends Component {
     static defaultProps = {
         heads: [],
         rows: [],
-        pagination: {}
+        pagination: {
+            activeClass: 'active',
+            inactiveClass: '',
+            defaults: {
+                size: 10,
+                listLength: 2
+            }
+        }
     }
 
     render() {
@@ -23,6 +30,7 @@ class Table extends Component {
                     <TableHead heads={this.props.heads}/>
                     <TableRow rows={this.props.rows}/>
                 </table>
+                <Pagination pagination={this.props.pagination}/>
             </div>
         );
     }

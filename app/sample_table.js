@@ -36,4 +36,12 @@ let rows = [
     }
 ];
 
-render(<Table heads={heads} rows={rows}/>, document.getElementById('app'));
+let optionsPagination = {
+    activeClass: 'active',
+    inactiveClass: '',
+    count: 100,
+    page: 1,
+    size: 10
+};
+
+render(<Table heads={heads} rows={rows} pagination={optionsPagination}/>, document.getElementById('app'));
