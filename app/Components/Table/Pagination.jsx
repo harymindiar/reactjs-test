@@ -6,7 +6,6 @@ export default class Pagination extends Component {
     render() {
         let paginator = Paginator(this.props.pagination);
         let paginate = paginator.paginate(this.props.pagination);
-        console.log(paginate);
         let range = Immutable.Map(paginate.range);
 
         let listPage = range.valueSeq().map(function(value, i) {
